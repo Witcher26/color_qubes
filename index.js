@@ -1,13 +1,29 @@
-const countDownElement = document.getElementById('countdown');
-let time = 3600;
+const containerNode = document.getElementById("container");
+const SQUARES = 10000;
+const colors = ['white', 'red', 'yellow', 'lime', 'blue', 'aqua', 'fuchsia'];
 
-setInterval(updateCountDown, 1000);
+for (let i = 0; i < SQUARES; i++) {
+    const square = document.createElement('div');
+    square.classList.add('square');
+    square.addEventListener('mouseover', () => {
+        setColorToElement(square);
+    });
 
-function updateCountDown(){
-    const munutes = Math.floor(time / 60);
-    let seconds = time % 60;
-    seconds = seconds < 10 ? "0" + seconds : seconds;
-    countDownElement.innerHTML = `${munutes}:${seconds}`;
+    square.addEventListener('mouseout', () => {
+        removeColorToElement(square);
+    });
+    containerNode.appendChild(square);
+};
 
-    time--
-}
+function setColorToElement(el) {
+    const color = getRandomColor();
+    el.style.background = color;
+};
+
+function removeColorToElement(el){
+    el.style.background = '#1d1d1d';
+};
+
+function getRandomColor(){
+    return colors[Math.floor(Math.random() * colors.length)]
+};

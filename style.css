@@ -1,19 +1,33 @@
-body {
-    background-color: aquamarine;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    padding-left: 10px;
-    font-size: 42px;
-    margin: 0;
+* {
+    box-sizing: border-box;
 }
 
-p {
-    background-color: azure;
+body {
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+}
+
+#container {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 42px;
-    height: 70px;
-    width: 200px;
+    flex-wrap: wrap;
+    min-width: 1000px;
+}
+
+.square {
+    background: #181717;
+    box-shadow: 0 0 2px #000;
+    margin: 2px;
+    width: 20px;
+    height: 20px;
+    transition: 2s ease;
+}
+
+.square:hover {
+    transition-duration: 0s;
 }
